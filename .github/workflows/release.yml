@@ -26,3 +26,21 @@ jobs:
       - run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "."
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          SCRIPT_AFTER: |
+            cd ${{ secrets.REMOTE_TARGET }}
+            docker compose up -d --build
