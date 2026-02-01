@@ -12,7 +12,8 @@
     "format": "prettier . --check",
     "format:write": "prettier . --write",
     "typecheck": "tsc -b --pretty false",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "semantic-release"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -31,6 +32,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.6",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
@@ -46,6 +52,7 @@
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
+    "semantic-release": "^24.2.9",
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.54.0",
