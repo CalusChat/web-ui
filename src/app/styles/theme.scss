@@ -1,0 +1,29 @@
+@use "sass:map";
+
+$midnight: (
+  bg: 13 16 23,
+  panel: 17 24 39,
+  card: 22 30 52,
+  text: 226 232 240,
+  muted: 148 163 184,
+  border: 51 65 85,
+  accent: 99 102 241,
+  "accent-fg": 255 255 255,
+  radius: 14px,
+);
+
+@mixin theme-vars($m) {
+  --bg: #{map.get($m, bg)};
+  --panel: #{map.get($m, panel)};
+  --card: #{map.get($m, card)};
+  --text: #{map.get($m, text)};
+  --muted: #{map.get($m, muted)};
+  --border: #{map.get($m, border)};
+  --accent: #{map.get($m, accent)};
+  --accent-fg: #{map.get($m, "accent-fg")};
+  --radius: #{map.get($m, radius)};
+}
+
+:root {
+  @include theme-vars($midnight);
+}

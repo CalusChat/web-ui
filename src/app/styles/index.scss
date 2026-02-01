@@ -1,0 +1,47 @@
+@use "./theme.scss";
+
+@layer utilities {
+  .bg-bg {
+    background-color: rgb(var(--bg));
+  }
+  .bg-panel {
+    background-color: rgb(var(--panel));
+  }
+  .bg-card {
+    background-color: rgb(var(--card));
+  }
+
+  .text-text {
+    color: rgb(var(--text));
+  }
+  .text-muted {
+    color: rgb(var(--muted));
+  }
+
+  .border-border {
+    border-color: rgb(var(--border));
+  }
+
+  .bg-accent {
+    background-color: rgb(var(--accent));
+  }
+  .text-accent-fg {
+    color: rgb(var(--accent-fg));
+  }
+
+  .rounded-theme {
+    border-radius: var(--radius);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+}
